@@ -10,7 +10,7 @@ async function start() {
         .setTitle('Heroes database')
         .setDescription('Document REST API')
         .setVersion('2.0.0')
-        .addTag('Pasha prodaction')
+        .addTag('Pasha production')
         .build();
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('/heroes/docs', app, document);

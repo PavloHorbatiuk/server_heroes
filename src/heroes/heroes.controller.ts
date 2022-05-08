@@ -46,8 +46,17 @@ export class HeroesController {
     @ApiOperation({summary: 'To update hero in database'})
     @ApiResponse({status: 200, type: Hero})
     @Put(':id/update')
-    update(@Param('id') id: number, @Body() dto: HeroDto) {
-        return this.heroesService.updateHero(id, dto);
+    @UseInterceptors(FileInterceptor('image'))
+    update(@Param('id') id: number, @Body() dto: HeroDto, @UploadedFile() image) {
+        return this.heroesService.updateHero(id, dto, image);
+    }
+
+    @ApiOperation({summary: 'To update image in database'})
+    @ApiResponse({status: 200, type: Hero})
+    @Put(':id/update/image')
+    @UseInterceptors(FileInterceptor('image'))
+    updateImage(@Param('id') id: number, @Body() dto: HeroDto, @UploadedFile() image) {
+        return this.heroesService.updateHero(id, dto, image);
     }
 
 

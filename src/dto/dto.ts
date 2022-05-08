@@ -12,5 +12,5 @@ export class HeroDto {
     @ApiProperty({example: 'Give me a beer bro', description: 'cll phrase'})
     readonly catch_phrase: string;
     @ApiProperty({example: 'Picture', description: 'some picture'})
-    readonly Images: string;
+    readonly image: string;
 }
